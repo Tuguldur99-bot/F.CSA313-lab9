@@ -131,4 +131,19 @@ class ScholarshipCalculatorTest {
     void scholarship_lowGpa_is0() {
         assertEquals(0, calc.scholarship(2.9, 16, false));
     }
+
+    // ---------- Part C: loop boundary tests for the for-loop in gpa() ----------
+    // 0 iterations: gpa_null_throws and gpa_emptyArray_throws (above)
+
+    // 1 iteration
+    @Test
+    void gpa_loopOneIteration_95_is4() {
+        assertEquals(4.0, calc.gpa(new double[]{95}), 0.001);
+    }
+
+    // 2+ iterations
+    @Test
+    void gpa_loopManyIterations_fourGrades_is2point5() {
+        assertEquals(2.5, calc.gpa(new double[]{95, 85, 75, 65}), 0.001);
+    }
 }
